@@ -13,20 +13,20 @@
 			"match": "(\\!.*)|(\/\/.*)",
 			"captures": {
 				"1": {
-					"name": "comment.mark"
+					"name": "comment.line.mark"
 				},
 				"2": {
-					"name": "comment.slash"
+					"name": "comment.line.slash"
 				}
 			}
 		},
     {
-			"name": "string.quoted.double.untitled",
+			"name": "string.quoted.double",
 			"begin": "\"",
 			"end": "\"",
       "patterns": [ 
         {
-          "name": "constant.character.escape.untitled",
+          "name": "constant.character.escape",
           "match": "\\^."
         }
       ]
@@ -36,7 +36,7 @@
       "end": "\\s*(INT|STRING|REAL)\\s+",
       "captures": {
 				"1": {
-					"name": "keyword.type"
+					"name": "storage.type.global"
 				}
 			}
     },
@@ -45,7 +45,7 @@
       "end": "\\s*(END)\\s+",
 			"captures": {
 				"1": {
-					"name": "keyword.function"
+					"name": "storage.type.function"
 				}
 			},
       "patterns": [
@@ -59,7 +59,7 @@
       "end": "\\s*(END)\\s+",
 			"captures": {
 				"1": {
-					"name": "keyword.function"
+					"name": "storage.type.function"
 				}
 			},
       "patterns": [
@@ -72,7 +72,7 @@
       "match": ".*(RETURN).*",
       "captures": {
         "1": {
-          "name": "keyword.function"
+          "name": "keyword.control.flow"
         }
       }
     },
@@ -80,7 +80,7 @@
       "match": "\\s*(INT|STRING|REAL)\\s+",
       "captures": {
 				"1": {
-					"name": "keyword.type"
+					"name": "storage.type"
 				}
 			}
     },
@@ -89,7 +89,7 @@
       "end": "\\s*(END SELECT|END)\\s+",
 			"captures": {
 				"1": {
-					"name": "keyword.control"
+					"name": "keyword.control.flow"
 				}
 			},
       "patterns": [
@@ -102,7 +102,7 @@
 			"match": "\\s*(CASE|THEN|ELSE)\\s+",
 			"captures": {
 				"1": {
-					"name": "keyword.control"
+					"name": "keyword.control.flow"
 				}
 			}
 		},
@@ -111,7 +111,7 @@
       "end": "\\s*(END)\\s+",
 			"captures": {
 				"1": {
-					"name": "keyword.loop"
+					"name": "keyword.control.loop"
 				}
 			},
       "patterns": [
@@ -124,7 +124,7 @@
 			"match": "\\s*(DO)\\s+",
 			"captures": {
 				"1": {
-					"name": "keyword.loop"
+					"name": "keyword.control.loop"
 				}
 			}
 		},
@@ -132,7 +132,7 @@
 			"match": "\\b(lb.*?)\\b",
 			"captures": {
 				"1": {
-					"name": "variable.label"
+					"name": "variable.other.constant"
 				}
 			}
 		},
@@ -140,10 +140,10 @@
 			"match": "\\b((\\d+?)|(0x\\d+))\\b",
 			"captures": {
 				"2": {
-					"name": "variable.number.decimal"
+					"name": "constant.numeric"
 				},
         "3": {
-          "name": "variable.number.hex"
+          "name": "constant.numeric.hex"
         }
 			}
 		},
@@ -152,15 +152,15 @@
       "end": "(\\))",
       "beginCaptures": {
         "1": {
-					"name": "function.system"
+					"name": "entity.name.class"
 				},
         "2": {
-					"name": "symbol"
+					"name": "keyword.operator"
         }
       },
       "endCaptures": {
         "1": {
-					"name": "symbol"
+					"name": "keyword.operator"
 				}
       },
       "patterns": [
@@ -174,15 +174,15 @@
       "end": "(\\))",
       "beginCaptures": {
         "1": {
-					"name": "function.user"
+					"name": "entity.name.function"
 				},
         "2": {
-					"name": "symbol"
+					"name": "keyword.operator"
         }
       },
       "endCaptures": {
         "1": {
-					"name": "symbol"
+					"name": "keyword.operator"
 				}
       },
       "patterns": [
@@ -192,12 +192,20 @@
       ]
 		},
     {
-      "match": "(\\[|\\]|\\(|\\)|\\=|\\+|\\-|\\*|\\/|;|\\bMOD\\b|<|>|,)",
+      "match": "(\\(|\\))",
       "captures": {
 				"1": {
-					"name": "symbol"
+					"name": "meta.brace.round"
 				}
 			}
+    },
+    {
+      "match": "\\b(\\w+)\\b",
+      "captures": {
+        "1": {
+          "name": "variable"
+        }
+      }
     }
 	],
 	"repository": {}
