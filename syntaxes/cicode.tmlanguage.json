@@ -1,0 +1,204 @@
+{
+	"information_for_contributors": [
+		"This file has been converted from https://github.com/textmate/asp.vb.net.tmbundle/blob/master/Syntaxes/ASP%20VB.net.plist",
+		"If you want to provide a fix or improvement, please create a pull request against the original repository.",
+		"Once accepted there, we are happy to receive an update request."
+	],
+	"version": "https://github.com/textmate/asp.vb.net.tmbundle/commit/72d44550b3286d0382d7be0624140cf97857ff69",
+	"name": "Cicode",
+	"scopeName": "source.cicode",
+	"comment": "Modified from the original ASP bundle. Originally modified by Thomas Aylott subtleGradient.com",
+	"patterns": [
+		{
+			"match": "(\\!.*)|(\/\/.*)",
+			"captures": {
+				"1": {
+					"name": "comment.mark"
+				},
+				"2": {
+					"name": "comment.slash"
+				}
+			}
+		},
+    {
+			"name": "string.quoted.double.untitled",
+			"begin": "\"",
+			"end": "\"",
+      "patterns": [ 
+        {
+          "name": "constant.character.escape.untitled",
+          "match": "\\^."
+        }
+      ]
+		},
+    {
+      "begin": "\\s*(GLOBAL)\\s+",
+      "end": "\\s*(INT|STRING|REAL)\\s+",
+      "captures": {
+				"1": {
+					"name": "keyword.type"
+				}
+			}
+    },
+    {
+			"begin": "\\s*(INT|STRING|REAL)\\s*$",
+      "end": "\\s*(END)\\s+",
+			"captures": {
+				"1": {
+					"name": "keyword.function"
+				}
+			},
+      "patterns": [
+        {
+          "include": "$self"
+        }
+      ]
+		},
+    {
+			"begin": "\\s*(FUNCTION)\\s*",
+      "end": "\\s*(END)\\s+",
+			"captures": {
+				"1": {
+					"name": "keyword.function"
+				}
+			},
+      "patterns": [
+        {
+          "include": "$self"
+        }
+      ]
+		},
+    {
+      "match": ".*(RETURN).*",
+      "captures": {
+        "1": {
+          "name": "keyword.function"
+        }
+      }
+    },
+    {
+      "match": "\\s*(INT|STRING|REAL)\\s+",
+      "captures": {
+				"1": {
+					"name": "keyword.type"
+				}
+			}
+    },
+    {
+			"begin": "\\s*(IF|SELECT CASE)\\s+",
+      "end": "\\s*(END SELECT|END)\\s+",
+			"captures": {
+				"1": {
+					"name": "keyword.control"
+				}
+			},
+      "patterns": [
+        {
+          "include": "$self"
+        }
+      ]
+		},
+    {
+			"match": "\\s*(CASE|THEN|ELSE)\\s+",
+			"captures": {
+				"1": {
+					"name": "keyword.control"
+				}
+			}
+		},
+    {
+      "begin": "\\s*(FOR|WHILE)\\s+",
+      "end": "\\s*(END)\\s+",
+			"captures": {
+				"1": {
+					"name": "keyword.loop"
+				}
+			},
+      "patterns": [
+        {
+          "include": "$self"
+        }
+      ]
+		},
+    {
+			"match": "\\s*(DO)\\s+",
+			"captures": {
+				"1": {
+					"name": "keyword.loop"
+				}
+			}
+		},
+    {
+			"match": "\\b(lb.*?)\\b",
+			"captures": {
+				"1": {
+					"name": "variable.label"
+				}
+			}
+		},
+    {
+			"match": "\\b((\\d+?)|(0x\\d+))\\b",
+			"captures": {
+				"2": {
+					"name": "variable.number.decimal"
+				},
+        "3": {
+          "name": "variable.number.hex"
+        }
+			}
+		},
+    {
+			"begin": "(AccControl|AccumBrowseClose|AccumBrowseFirst|AccumBrowseGetField|AccumBrowseNext|AccumBrowseNumRecords|AccumBrowseOpen|AccumBrowsePrev|MapOpen|MapClear|MapClose|MapExists|MapKeyCount|MapKeyDelete|MapKeyExists|MapKeyFirst|MapKeyNext|MapValueGet|MapValueSet|MapValueSetQuality|_ObjectCallMethod|_ObjectGetProperty|_ObjectSetProperty|AnByName|CreateControlObject|CreateObject|ObjectAssociateEvents|ObjectAssociatePropertyWithTag|ObjectByName|ObjectHasInterface|ObjectIsValid|ObjectToStr|Abs|ArcCos|ArcSin|ArcTan|Cos|DegToRad|Exp|Fact|HighByte|HighWord|Ln|Log|LowByte|LowWord|Max|Min|Pi|Pow|RadToDeg|Rand|Round|Sign|Sin|Sqrt|Tan|AlarmAck|AlarmAckRec|AlarmAckTag|AlarmActive|AlarmCatGetFormat|AlarmClear|AlarmClearRec|AlarmClearTag|AlarmComment|AlarmCommentRecID|AlarmCount|AlarmCountEquipment|AlarmCountList|AlarmDelete|AlarmDisable|AlarmDisableRec|AlarmDisableTag|AlarmDsp|AlarmDspClusterAdd|AlarmDspClusterInUse|AlarmDspClusterRemove|AlarmDspLast|AlarmDspNext|AlarmDspPrev|AlarmEnable|AlarmEnableRec|AlarmEnableTag|AlarmEventQue|AlarmFirstCatRec|AlarmFirstPriRec|AlarmFirstTagRec|AlarmGetDelay|AlarmGetDelayRec|AlarmGetDsp|AlarmGetFieldRec|AlarmGetInfo|AlarmGetOrderbyKey|AlarmGetThreshold|AlarmGetThresholdRec|AlarmHelp|AlarmHighestPriority|AlarmListCreate|AlarmListDestroy|AlarmListDisplay|AlarmListFill|AlarmNextCatRec|AlarmNextPriRec|AlarmNextTagRec|AlarmNotifyVarChange|AlarmQueryFirstRec|AlarmQueryNextRec|AlarmResetQuery|AlarmSetDelay|AlarmSetDelayRec|AlarmSetInfo|AlarmSetQuery|AlarmSetThreshold|AlarmSetThresholdRec|AlarmSplit|AlarmSumAppend|AlarmSumCommit|AlarmSumDelete|AlarmSumFind|AlarmSumFirst|AlarmSumGet|AlarmSumLast|AlarmSumNext|AlarmSumPrev|AlarmSumSet|AlarmSumSplit|AlarmSumType|AlmBrowseAck|AlmBrowseClear|AlmBrowseClose|AlmBrowseDisable|AlmBrowseEnable|AlmBrowseFirst|AlmBrowseGetField|AlmBrowseNext|AlmBrowseNumRecords|AlmBrowseOpen|AlmBrowsePrev|AlmSummaryAck|AlmSummaryClear|AlmSummaryClose|AlmSummaryCommit|AlmSummaryDelete|AlmSummaryDeleteAll|AlmSummaryDisable|AlmSummaryEnable|AlmSummaryFirst|AlmSummaryGetField|AlmSummaryLast|AlmSummaryNext|AlmSummaryNumRecords|AlmSummaryOpen|AlmSummaryPrev|AlmSummarySetFieldValue|AlmTagsAck|AlmTagsClear|AlmTagsClose|AlmTagsDisable|AlmTagsEnable|AlmTagsFirst|AlmTagsGetField|AlmTagsNext|AlmTagsNumRecords|AlmTagsOpen|AlmTagsPrev|HwAlarmQue|MenuGetChild|MenuGetFirstChild|MenuGetGenericNode|MenuGetNextChild|MenuGetNodeByPath|MenuGetPageNode|MenuGetParent|MenuGetPrevChild|MenuGetWindowNode|MenuNodeAddChild|MenuNodeGetCurr|MenuNodeGetDepth|MenuNodeGetProperty|MenuNodeGetTargetPage|MenuNodeHasCommand|MenuNodeIsDisabled|MenuNodeGetExpanded|MenuNodeIsHidden|MenuNodeRemove|MenuNodeRunCommand|MenuNodeSetDisabledWhen|MenuNodeSetExpanded|MenuNodeSetHiddenWhen|MenuNodeSetProperty|MenuReload|AlarmFilterClose|AlarmFilterEditAppend|AlarmFilterEditAppendEquipment|AlarmFilterEditClose|AlarmFilterEditCommit|AlarmFilterEditFirst|AlarmFilterEditLast|AlarmFilterEditNext|AlarmFilterEditOpen|AlarmFilterEditPrev|AlarmFilterEditSet|AlarmFilterForm|AlarmFilterOpen|AlarmGetFilterName|AlarmResetQuery|LibAlarmFilterForm|AreaCheck|Assert|Beep|CitectInfo|CodeTrace|DebugBreak|DebugMsg|DebugMsgSet|DelayShutdown|DisplayRuntimeManager|DumpKernel|EngToGeneric|Exec|GetArea|GetEnv|GetLogging|InfoForm|InfoFormAn|Input|IntToReal|KerCmd|KernelQueueLength|KernelTableInfo|KernelTableItemCount|LanguageFileTranslate|Message|ParameterGet|ParameterPut|ProcessIsClient|ProcessIsServer|ProcessRestart|ProductInfo|ProjectInfo|ProjectRestartGet|ProjectRestartSet|ProjectSet|Prompt|Pulse|ServerDumpKernel|ServiceGetList|SetArea|SetLanguage|SetLogging|Shutdown|ShutdownForm|ShutdownMode|SwitchConfig|TestRandomWave|TestSawWave|TestSinWave|TestSquareWave|TestTriangWave|Toggle|TraceMsg|Version|ArrayCopy|ArrayCreate|ArrayCreateByAn|ArrayDestroy|ArrayDestroyByAn|ArrayExists|ArrayExistsByAn|ArrayFillFromAlarmDataByAn|ArrayGetArrayByAn|ArrayGetInfo|ArrayGetInt|ArrayGetIntByAn|ArrayGetMapName|ArrayGetMapNameByAn|ArrayGetString|ArrayGetStringByAn|ArrayIsDirty|ArraySetInt|ArraySetIntByAn|ArraySetIsDirty|ArraySetString|ArraySetStringByAn|ArraySwap|DspArrayByAn|DllClassDispose|DllClassCreate|DllClassGetProperty|DllClassIsValid|DllClassCallMethod|DllClassSetProperty|ClipCopy|ClipPaste|ClipReadLn|ClipSetMode|ClipWriteLn|PageAlarm|PageBack|PageDisabled|PageDisplay|PageExists|PageFile|PageFileInfo|PageFileInfoEx|PageForward|PageGetInt|PageGetStr|PageGoto|PageHardware|PageHistoryDspMenu|PageHistoryEmpty|PageHome|PageInfo|PageKeyboardCommandsPut|PageLast|PageListCount|PageListCurrent|PageListInfo|PageListDisplay|PageListDelete|PageMenu|PageNext|PagePeekCurrent|PagePeekLast|PagePopLast|PagePopUp|PagePrev|PageProcessAnalyst|PageProcessAnalystPens|PagePushLast|PageRecall|PageRichTextFile|PageSelect|PageSetInt|PageSetStr|PageSOE|PageSummary|PageTask|PageTransformCoords|PageTrend|PageTrendEx|ClusterActivate|ClusterDeactivate|ClusterFirst|ClusterGetName|ClusterIsActive|ClusterNext|ClusterServerTypes|ClusterStatus|ClusterSetName|ClusterSwapActive|PlotClose|PlotDraw|PlotFile|PlotGetMarker|PlotGrid|PlotInfo|PlotLine|PlotMarker|PlotOpen|PlotScaleMarker|PlotSetMarker|PlotText|PlotXYLine|CitectColourToPackedRGB|GetBlueValue|GetGreenValue|GetRedValue|MakeCitectColour|PackedRGB|PackedRGBToCitectColour|ProcessAnalystLoadFile|ProcessAnalystPopUp|ProcessAnalystSelect|ProcessAnalystSetPen|ProcessAnalystWin|ComClose|ComOpen|ComRead|ComReset|ComWrite|SerialKey|QualityCreate|QualityGetPart|QualityIsBad|QualityIsGood|QualityIsUncertain|QualitySetPart|QualityIsOverride|QualityIsControlInhibit|QualityToStr|VariableQuality|DDEExec|DDEPost|DDERead|DDEWrite|DDEhExecute|DDEhGetLastError|DDEhInitiate|DDEhPoke|DDEhReadLn|DDEhRequest|DDEhSetMode|DDEhTerminate|DDEhWriteLn|RepGetCluster|RepGetControl|Report|RepSetControl|DevAppend|DevClose|DevControl|DevCurr|DevDelete|DevDisable|DevEOF|DevFind|DevFirst|DevFlush|DevGetField|DevHistory|DevInfo|DevModify|DevNext|DevOpen|DevOpenGrp|DevPrev|DevPrint|DevRead|DevReadLn|DevRecNo|DevSeek|DevSetField|DevSize|DevWrite|DevWriteLn|DevZap|Print|PrintLn|PrintFont|SchdClose|SchdConfigClose|SchdConfigFirst|SchdConfigGetField|SchdConfigNext|SchdConfigNumRecords|SchdConfigOpen|SchdConfigPrev|SchdFirst|SchdGetField|SchdNext|SchdNumRecords|SchdOpen|SchdPrev|ScheduleItemAdd|ScheduleItemDelete|ScheduleItemModify|ScheduleItemSetRepeat|SchdSpecialAdd|SchdSpecialClose|SchdSpecialDelete|SchdSpecialFirst|SchdSpecialGetField|SchdSpecialItemAdd|SchdSpecialItemClose|SchdSpecialItemDelete|SchdSpecialItemFirst|SchdSpecialItemGetField|SchdSpecialItemModify|SchdSpecialItemNext|SchdSpecialItemNumRecords|SchdSpecialItemOpen|SchdSpecialItemPrev|SchdSpecialModify|SchdSpecialNext|SchdSpecialNumRecords|SchdSpecialOpen|SchdSpecialPrev|DspAnCreateControlObject|DspAnFree|DspAnGetArea|DspAnGetMetadata|DspAnGetMetadataAt|DspAnGetPos|DspAnGetPrivilege|DspAnInfo|DspAnInRgn|DspAnMove|DspAnMoveRel|DspAnSetName|DspAnNew|DspAnNewRel|DspAnSetMetadata|DspAnSetMetadataAt|DspBar|DspBmp|DspButton|DspButtonFn|DspClearClip|DspChart|DspCol|DspDel|DspDelayRenderBegin|DspDelayRenderEnd|DspDirty|DspError|DspFile|DspFileGetInfo|DspFileGetName|DspFileScroll|DspFileSetName|DspFont|DspFontHnd|DspFullScreen|DspGetAnBottom|DspGetAnCur|DspGetAnExtent|DspGetAnFirst|DspGetAnFromName|DspGetAnFromNameRelative|DspGetAnFromPoint|DspGetAnHeight|DspGetAnLeft|DspGetAnNext|DspGetAnRight|DspGetAnTop|DspGetAnWidth|DspGetEnv|DspGetMetadataFromName|DspGetMetadataFromNameRelative|DspGetMouse|DspGetMouseOver|DspGetNameFromAn|DspGetNearestAn|DspGetParentAn|DspGetSlider|DspGetTip|DspGrayButton|DspInfo|DspInfoDestroy|DspInfoField|DspInfoNew|DspInfoValid|DspIsButtonGray|DspKernel|DspMarkerMove|DspMarkerNew|DspMCI|DspPlaySound|DspPopUpConfigMenu|DspPopupMenu|DspRichText|DspRichTextEdit|DspRichTextEnable|DspRichTextGetInfo|DspRichTextLoad|DspRichTextPgScroll|DspRichTextPrint|DspRichTextSave|DspRichTextScroll|DspRubEnd|DspRubMove|DspRubSetClip|DspRubStart|DspSetClip|DspSetCurColor|DspSetMetadataFromName|DspSetMetadataFromNameRelative|DspSetPopupMenuFont|DspSetSlider|DspSetTip|DspSetTooltipFont|DspStatus|DspStr|DspSym|DspSymAnm|DspSymAnmEx|DspSymAtSize|DspText|DspTipMode|DspTrend|DspTrendInfo|ResetScreenProfile|DLLCall|DLLCallEx|DLLClose|DLLOpen|FullName|GetLanguage|GetPriv|Login|LoginForm|Logout|LogoutIdle|MultiSignatureForm|MultiSignatureTagWrite|Name|UserCreate|UserCreateForm|UserDelete|UserEditForm|UserInfo|UserLogin|UserPassword|UserPasswordExpiryDays|UserPasswordForm|UserSetStr|UserUpdateRecord|UserVerify|VerifyPrivilegeForm|VerifyPrivilegeTagWrite|WhoAmI|EquipBrowseClose|EquipBrowseFirst|EquipBrowseGetField|EquipBrowseNext|EquipBrowseNumRecords|EquipBrowseOpen|EquipBrowsePrev|EquipCheckUpdate|EquipGetParameter|EquipGetProperty|EquipRefBrowseClose|EquipRefBrowseFirst|EquipRefBrowseGetField|EquipRefBrowseNext|EquipRefBrowseNumRecords|EquipRefBrowseOpen|EquipRefBrowsePrev|EquipSetProperty|EquipStateBrowseClose|EquipStateBrowseFirst|EquipStateBrowseGetField|EquipStateBrowseNext|EquipStateBrowseNumRecords|EquipStateBrowseOpen|EquipStateBrowsePrev|SOEEventAdd|SOEArchive|SOEMount|SOEDismount|ErrCom|ErrDrv|ErrGetHw|ErrHelp|ErrInfo|ErrLog|ErrMsg|ErrSet|ErrSetHw|ErrSetLevel|ErrTrap|IsError|ServerBrowseClose|ServerBrowseFirst|ServerBrowseGetField|ServerBrowseNext|ServerBrowseNumRecords|ServerBrowseOpen|ServerBrowsePrev|ServerGetProperty|ServerInfo|ServerInfoEx|ServerIsOnline|ServerReload|ServerRestart|ServerRPC|CallEvent|ChainEvent|GetEvent|OnEvent|SetEvent|SPCAlarms|SPCClientInfo|SPCGetHistogramTable|SPCGetSubgroupTable|SPCPlot|SPCProcessXRSGet|SPCProcessXRSSet|SPCSetLimit|SPCSpecLimitGet|SPCSpecLimitSet|SPCSubgroupSizeGet|SPCSubgroupSizeSet|FileClose|FileCopy|FileDelete|FileEOF|FileExist|FileFind|FileFindClose|FileGetTime|FileMakePath|FileOpen|FilePrint|FileRead|FileReadBlock|FileReadLn|FileRename|FileRichTextPrint|FileSeek|FileSetTime|FileSize|FileSplitPath|FileWrite|FileWriteBlock|FileWriteLn|ExecuteDTSPkg|SQLClose|SQLConnect|SQLCreate|SQLDisconnect|SQLDispose|SQLInfo|SQLOpen|SQLBeginTran|SQLCommit|SQLRollBack|SQLAppend|SQLCall|SQLEnd|SQLExec|SQLGetRecordset|SQLGetScalar|SQLSet|SQLQueryCreate|SQLQueryDispose|SQLCancel|SQLFieldInfo|SQLGetField|SQLIsNullField|SQLNext|SQLNoFields|SQLNumChange|SQLNumFields|SQLPrev|SQLRowCount|SQLErrMsg|SQLTraceOff|SQLTraceOn|SQLParamsClearAll|SQLParamsSetAsInt|SQLParamsSetAsReal|SQLParamsSetAsString|FormActive|FormAddList|FormButton|FormCheckBox|FormComboBox|FormCurr|FormDestroy|FormEdit|FormField|FormGetCurrInst|FormGetData|FormGetInst|FormGetText|FormGoto|FormGroupBox|FormInput|FormListAddText|FormListBox|FormListDeleteText|FormListSelectText|FormNew|FormNumPad|FormOpenFile|FormPassword|FormSecurePassword|FormPosition|FormPrompt|FormRadioButton|FormRead|FormSaveAsFile|FormSelectPrinter|FormSetData|FormSetInst|FormSetText|FormWndHnd|CharToStr|HexToStr|IntToStr|PathToStr|RealToStr|StrCalcWidth|StrClean|StrEndsWith|StrFill|StrFormat|StrGetChar|StrLeft|StrLength|StrListContainsItem|StrLower|StrMid|StrPad|StrRight|StrSearch|StrSetChar|StrSplit|StrToBool|StrToChar|StrToDate|StrToFmt|StrToGrp|StrToHex|StrToInt|StrToLines|StrToLocalText|StrToPeriod|StrToReal|StrToTime|StrToValue|StrTrim|StrTruncFont|StrTruncFontHnd|StrTruncFontTooltip|StrUpper|StrWord|FmtClose|FmtFieldHnd|FmtGetField|FmtGetFieldCount|FmtGetFieldHnd|FmtGetFieldName|FmtGetFieldWidth|FmtOpen|FmtSetField|FmtSetFieldHnd|FmtToStr|Ass|AssChain|AssChainPage|AssChainPopUp|AssChainWin|AssChainWinFree|AssEquipParameters|AssEquipReferences|AssGetProperty|AssGetScale|AssInfo|AssInfoEx|AssMetadata|AssMetadataPage|AssMetadataPopup|AssMetadataWin|AssPage|AssPopUp|AssScaleStr|AssTag|AssTitle|AssVarTags|AssWin|AssWinReplace|TableLookup|TableMath|TableShift|FTPClose|FTPFileCopy|FTPFileFind|FTPFileFindClose|FTPOpen|SubscriptionAddCallback|SubscriptionGetAttribute|SubscriptionGetInfo|SubscriptionGetQuality|SubscriptionGetTag|SubscriptionGetTimestamp|SubscriptionGetValue|SubscriptionRemoveCallback|TagBrowseClose|TagBrowseFirst|TagBrowseGetField|TagBrowseNext|TagBrowseNumRecords|TagBrowseOpen|TagBrowsePrev|TagDebug|TagDebugForm|TagEventFormat|TagEventQueue|TagGetProperty|TagGetScale|TagGetValue|TagInfo|TagInfoEx|TagRamp|TagRDBReload|TagRead|TagReadEx|TagResolve|TagScaleStr|TagSetOverrideBad|TagSetOverrideGood|TagSetOverrideUncertain|TagSetOverrideQuality|TagSubscribe|TagUnsubscribe|TagUnresolve|TagWrite|TagWriteEventQue|TagWriteIntArray|TagWriteRealArray|FuzzyClose|FuzzyGetCodeValue|FuzzyGetShellValue|FuzzyOpen|FuzzySetCodeValue|FuzzySetShellValue|FuzzyTrace|CodeSetMode|EnterCriticalSection|Halt|LeaveCriticalSection|MsgBrdcst|MsgClose|MsgGetCurr|MsgOpen|MsgRead|MsgRPC|MsgState|MsgWrite|QueClose|QueLength|QueOpen|QuePeek|QueRead|QueWrite|ReRead|SemClose|SemOpen|SemSignal|SemWait|ServerRPC|Sleep|SleepMS|TaskCall|TaskCluster|TaskGetSignal|TaskHnd|TaskKill|TaskNew|TaskNewEx|TaskResume|TaskSetSignal|TaskSuspend|GrpClose|GrpDelete|GrpFirst|GrpIn|GrpInsert|GrpMath|GrpName|GrpNext|GrpOpen|GrpToStr|DriverInfo|IODeviceControl|IODeviceInfo|IODeviceStats|Date|DateAdd|DateDay|DateInfo|DateMonth|DateSub|DateWeekDay|DateYear|OLEDateToTime|SysTime|SysTimeDelta|Time|TimeCurrent|TimeHour|TimeInfo|TimeMidNight|TimeMin|TimeSec|TimeSet|TimeToOLEDate|TimeToStr|TimeUTCOffset|KeyAllowCursor|KeyBs|KeyDown|KeyGet|KeyGetCursor|KeyLeft|KeyMove|KeyPeek|KeyPut|KeyPutStr|KeyReplay|KeyReplayAll|KeyRight|KeySetCursor|KeySetSeq|KeyUp|SendKeys|StrToTimestamp|TimestampAdd|TimestampCreate|TimestampToStr|TimestampDifference|TimestampCurrent|TimestampFormat|TimestampGetPart|TimeIntToTimestamp|TimestampSub|TimestampToTimeInt|VariableTimestamp|MailError|MailLogoff|MailLogon|MailRead|MailSend|TrnAddHistory|TrnBrowseClose|TrnBrowseFirst|TrnBrowseGetField|TrnBrowseNext|TrnBrowseNumRecords|TrnBrowseOpen|TrnBrowsePrev|TrnClientInfo|TrnComparePlot|TrnDelete|TrnDelHistory|TrnEcho|TrnEventGetTable|TrnEventGetTableMS|TrnEventSetTable|TrnEventSetTableMS|TrnExportClip|TrnExportCSV|TrnExportDBF|TrnExportDDE|TrnFlush|TrnGetBufEvent|TrnGetBufTime|TrnGetBufValue|TrnGetCluster|TrnGetCursorEvent|TrnGetCursorMSTime|TrnGetCursorPos|TrnGetCursorTime|TrnGetCursorValue|TrnGetCursorValueStr|TrnGetDefScale|TrnGetDisplayMode|TrnGetEvent|TrnGetFormat|TrnGetGatedValue|TrnGetInvalidValue|TrnGetMode|TrnGetMSTime|TrnGetPen|TrnGetPenComment|TrnGetPenFocus|TrnGetPenNo|TrnGetPeriod|TrnGetScale|TrnGetScaleStr|TrnGetSpan|TrnGetTable|TrnGetTime|TrnGetUnits|TrnInfo|TrnIsValidValue|TrnNew|TrnPlot|TrnPrint|TrnSamplesConfigured|TrnScroll|TrnSelect|TrnSetCursor|TrnSetCursorPos|TrnSetDisplayMode|TrnSetEvent|TrnSetPen|TrnSetPenFocus|TrnSetPeriod|TrnSetScale|TrnSetSpan|TrnSetTable|TrnSetTime|TrendDspCursorComment|TrendDspCursorScale|TrendDspCursorTag|TrendDspCursorTime|TrendDspCursorValue|TrendGetAn|TrendPopUp|TrendRun|TrendSetDate|TrendSetScale|TrendSetSpan|TrendSetTime|TrendSetTimebase|TrendWin|TrendZoom|GetWinTitle|HtmlHelp|MultiMonitorStart|WinCopy|WinFile|WinFree|WinGetClicked|WinGetFirstChild|WinGetFocus|WinGetName|WinGetNextChild|WinGetParent|WinGetWndHnd|WinGoto|WinMode|WinMove|WinNew|WinNewAt|WinNewPinAt|WinNext|WinNumber|WinPos|WinPrev|WinPrint|WinPrintFile|WinSelect|WinSetName|WinSize|WinStyle|WinTitle|WndFind|WndGetFileProfile|WndGetProfile|WndHelp|WndInfo|WndMonitorInfo|WndMonitorInfoEx|WndPutFileProfile|WndPutProfile|WndShow|WndViewer|XMLClose|XMLCreate|XMLGetAttribute|XMLGetAttributeCount|XMLGetAttributeName|XMLGetAttributeValue|XMLGetChild|XMLGetChildCount|XMLGetParent|XMLGetRoot|XMLNodeAddChild|XMLNodeFind|XMLNodeGetName|XMLNodeGetValue|XMLNodeRemove|XMLNodeSetValue|XMLOpen|XMLSave|XMLSetAttribute)(\\()",
+      "end": "(\\))",
+      "beginCaptures": {
+        "1": {
+					"name": "function.system"
+				},
+        "2": {
+					"name": "symbol"
+        }
+      },
+      "endCaptures": {
+        "1": {
+					"name": "symbol"
+				}
+      },
+      "patterns": [
+        {
+          "include": "$self"
+        }
+      ]
+		},
+    {
+			"begin": "(\\w+)(\\()",
+      "end": "(\\))",
+      "beginCaptures": {
+        "1": {
+					"name": "function.user"
+				},
+        "2": {
+					"name": "symbol"
+        }
+      },
+      "endCaptures": {
+        "1": {
+					"name": "symbol"
+				}
+      },
+      "patterns": [
+        {
+          "include": "$self"
+        }
+      ]
+		},
+    {
+      "match": "(\\[|\\]|\\(|\\)|\\=|\\+|\\-|\\*|\\/|;|\\bMOD\\b|<|>|,)",
+      "captures": {
+				"1": {
+					"name": "symbol"
+				}
+			}
+    }
+	],
+	"repository": {}
+}
