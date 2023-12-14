@@ -6,11 +6,14 @@
      },
      "publisher": "mbaraldi",
      "contributes": {
-         "languages": [{
+         "languages": [
+            {
              "id": "cicode",
              "aliases": ["Cicode", "cicode"],
-             "extensions": [".ci"]
-         }],
+             "extensions": [".ci"],
+             "configuration": "./language-configuration.json"
+            }
+        ],
          "grammars": [{
              "language": "cicode",
              "scopeName": "source.cicode",

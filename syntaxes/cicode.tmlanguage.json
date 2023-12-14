@@ -32,8 +32,8 @@
       ]
 		},
     {
-      "begin": "\\s*(GLOBAL)\\s+",
-      "end": "\\s*(INT|STRING|REAL)\\s+",
+      "begin": "\\b(GLOBAL)\\b",
+      "end": "\\b(INT|STRING|REAL)\\b",
       "captures": {
 				"1": {
 					"name": "storage.type.global"
@@ -69,7 +69,7 @@
       ]
 		},
     {
-      "match": ".*(RETURN).*",
+      "match": ".*(RETURN)",
       "captures": {
         "1": {
           "name": "keyword.control.flow"
